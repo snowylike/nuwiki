@@ -12,7 +12,7 @@ class UserRepository {
         $dbcon = new PDO($dbname,$user);
         $user = $dbcon->query('SELECT * from user;');
         $temp = $user->fetchAll();
-        $entries = array(),
+        $entries = array();
         foreach($temp as $e) {
             $entries[] = new User($e);
         }
