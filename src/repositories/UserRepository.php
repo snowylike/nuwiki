@@ -16,7 +16,9 @@ class UserRepository {
     }
 
     public function firstUser() {
-        $dbcon = new PDO('mysql:host=localhost;dbname=nuwiki');
+        $dbname = 'mysql:host=localhost;dbname=nuwiki';
+        $user = 'root';
+        $dbcon = new PDO($dbname,$user);
         $user = $dbcon->query('SELECT * from user WHERE ID = 1');
         print_r($user);
         $user = null;
