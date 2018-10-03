@@ -20,7 +20,8 @@ class UserRepository {
         $user = 'root';
         $dbcon = new PDO($dbname,$user);
         $user = $dbcon->query('SELECT * from user WHERE ID = 1');
-        print_r($user);
+        $temp = $user->fetchAll();
+        print_r($temp);
         $user = null;
         $dbcon = null;
     }
