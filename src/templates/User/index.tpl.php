@@ -1,2 +1,2 @@
 <h2>User Setup</h2>
-<?php var_dump($entry); ?>
+<?php echo $entry[0]->getName(); ?>
