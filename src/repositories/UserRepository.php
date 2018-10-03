@@ -14,11 +14,7 @@ class UserRepository {
         $temp = $user->fetchAll();
         $entries = array();
         foreach($temp as $e) {
-            $temporaryplaceholder = array();
-            foreach($e as $k => $v) {
-                $temporaryplaceholder[$k] = $v;
-            }
-            $entries[] = new User($temporaryplaceholder);
+            $entries[] = new User($e);
         }
         $user = null;
         $dbcon = null;
