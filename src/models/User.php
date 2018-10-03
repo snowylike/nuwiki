@@ -10,50 +10,50 @@ class User extends CommonModel {
     private $nick = '';
     private $groupright = '';
 
-    private function setName($name) {
+    public function setName($name) {
         $this->name = $name;
     }
 
-    private function getName() {
+    public function getName() {
         return $this->name;
     }
-    private function setSurname($surname) {
+    public function setSurname($surname) {
         $this->surname = $surname;
     }
 
-    private function getSurname() {
+    public function getSurname() {
         return $this->surname;
     }
 
-    private function setPassword($password) {
+    public function setPassword($password) {
         $this->password = $password;
     }
 
-    private function getPassword() {
+    public function getPassword() {
         return $this->password;
     }
 
-    private function setId($id) {
+    public function setId($id) {
         $this->id = $id;
     }
 
-    private function getId() {
+    public function getId() {
         return $this->id;
     }
 
-    private function setNick($nick) {
+    public function setNick($nick) {
         $this->nick = $nick;
     }
 
-    private function getNick() {
+    public function getNick() {
         return $this->nick;
     }
 
-    private function setGroupright($groupright) {
+    public function setGroupright($groupright) {
         $this->groupright = $groupright;
     }
 
-    private function getGroupright() {
+    public function getGroupright() {
         return $this->groupright;
     }
 }
