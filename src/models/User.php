@@ -16,12 +16,12 @@ class User extends CommonModel {
     private function getName() {
         return $this->name;
     }
-    private function setName($name) {
-        $this->name = $name;
+    private function setSurname($surname) {
+        $this->surname = $surname;
     }
 
-    private function getName() {
-        return $this->name;
+    private function getSurname() {
+        return $this->surname;
     }
 
     private function setPassword($password) {
