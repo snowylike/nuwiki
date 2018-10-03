@@ -30,7 +30,7 @@ class SiteController extends CommonController {
 
         $message = $this->getMessage();
         $content = $this->getContent();
-        //extract($content);
+        extract($content);
 
         $template = $this->controller->getTemplate();
         $layout = $this->pathPrepper('src/templates/layout.tpl.php');

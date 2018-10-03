@@ -7,25 +7,17 @@ use \PDO;
 class UserRepository {
 
     public function findAll() {
-        $data = explode("\r\n", trim(file_get_contents('data/user.txt'), "\r\n"));
-        $entries = array();
-        foreach($data as $e) {
-            $entries[] = new User(unserialize($e));
-        }
-        return $entries;
-    }
-
-    public function firstUser() {
         $dbname = 'mysql:host=localhost;dbname=nuwiki';
         $user = 'root';
         $dbcon = new PDO($dbname,$user);
-        $user = $dbcon->query('SELECT * from user WHERE ID = 1');
+        $user = $dbcon->query('SELECT * from user;');
         $temp = $user->fetchAll();
-        print_r($temp);
-        echo '<br>';
-        var_dump($temp[0]);
-        echo $temp[0]['name'];
+        $entries = array(),
+        foreach($temp as $e) {
+            $entries[] = new User($e);
+        }
         $user = null;
         $dbcon = null;
+        return $entries;
     }
 }

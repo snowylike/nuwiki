@@ -16,12 +16,10 @@ class UserController extends CommonController {
 
     public function listAction() {
         $repo = new Repo();
-        /*$data = $repo->findAll();
+        $data = $repo->findAll();
         $this->addToContent('entry', $data);
 
         $this->finalizeContent();
-        $this->setTemplate('list');*/
-        $repo->firstUser();
         $this->setTemplate('index');
     }
 }
