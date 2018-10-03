@@ -2,6 +2,7 @@
 namespace repositories;
 
 use \models\User;
+use \PDO;
 
 class UserRepository {
 
