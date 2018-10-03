@@ -22,4 +22,16 @@ class UserController extends CommonController {
         $this->finalizeContent();
         $this->setTemplate('index');
     }
+
+    public function addAction() {
+        if(isset($_POST['addUser'])) {
+            $secured = $this->cleaner($_POST);
+            //add validation here
+
+            $secured['groupright'] = 'r';
+            $repo->add(new User($secured)); 
+        } else {
+            $this->setTemplate('add');
+        }
+    }
 }
