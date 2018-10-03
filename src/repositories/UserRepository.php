@@ -22,6 +22,7 @@ class UserRepository {
         $user = $dbcon->query('SELECT * from user WHERE ID = 1');
         $temp = $user->fetchAll();
         print_r($temp);
+        var_dump($temp[0]);
         $user = null;
         $dbcon = null;
     }
