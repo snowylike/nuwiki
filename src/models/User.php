@@ -2,12 +2,12 @@
 
 class User extends CommonModel {
 
-    private name = '';
-    private surname = '';
-    private password = '';
-    private id = 0;
-    private nick = '';
-    private groupright = '';
+    private $name = '';
+    private $surname = '';
+    private $password = '';
+    private $id = 0;
+    private $nick = '';
+    private $groupright = '';
 
     private function setName($name) {
         $this->name = $name;
@@ -23,7 +23,7 @@ class User extends CommonModel {
     private function getName() {
         return $this->name;
     }
-    
+
     private function setPassword($password) {
         $this->password = $password;
     }
