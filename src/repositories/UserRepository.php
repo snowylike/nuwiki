@@ -24,6 +24,7 @@ class UserRepository {
         print_r($temp);
         echo '<br>';
         var_dump($temp[0]);
+        echo $temp[0]['id'];
         $user = null;
         $dbcon = null;
     }
