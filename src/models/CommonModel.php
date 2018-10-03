@@ -1,7 +1,7 @@
 <?php
 namespace models;
 
-abstract class ModelInterface {
+abstract class CommonModel {
 
     public function __construct(array $data = array()) {
         if($data) {
