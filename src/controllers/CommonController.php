@@ -9,7 +9,7 @@ abstract class CommonController {
     protected function setTemplate($template) {
         $basepath = 'src/templates/';
 
-        $template = $this->pathPrepper($basepath.$this.'/'.$template);
+        $template = $this->pathPrepper($basepath.$this.'/'.$template.'.tpl.php');
 
         $this->template = file_exists($template) ?
                         $template : $basepath.'404.tpl.php';
