@@ -42,7 +42,7 @@ class SiteController extends CommonController {
         $controller .= 'Controller';
         $controller = nesting.'\\'.$controller;
 
-        if(file_exists($this->pathPrepper('src/'.$controller.'.php')) {
+        if(file_exists($this->pathPrepper('src/'.$controller.'.php'))) {
             $this->controller = new $controller();
         } else {
             $this->controller = new IndexController();
