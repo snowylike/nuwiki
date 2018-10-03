@@ -5,6 +5,6 @@
         <title>NuWiki</title>
     </head>
     <body>
-        <?php require('index.tpl.php'); ?>
+        <?php require($template); ?>
     </body>
 </html>
