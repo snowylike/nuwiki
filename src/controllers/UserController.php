@@ -7,6 +7,11 @@ use \repositories\UserRepository as Repo;
 class UserController extends CommonController {
 
     public function indexAction() {
+        $repo = new Repo();
+        $data = $repo->findAll();
+        $this->addToContent('entry', $data);
+
+        $this->finalizeContent();
         $this->setTemplate('index');
     }
 
