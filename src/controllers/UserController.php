@@ -74,12 +74,16 @@ class UserController extends CommonController {
             $this->finalizeContent();
             $this->setTemplate('index');
         } else {
-            $repo = new Repo();
-            $usertomod = $repo->getByID($_GET['id']);
-            $this->addToContent('user', $usertomod);
-            $this->addToContent('entry', $repo->findAll());
-            $this->finalizeContent();
-            $this->setTemplate('mod');
+            if(isset($_GET['id'])) {
+                $repo = new Repo();
+                $usertomod = $repo->getByID($_GET['id']);
+                $this->addToContent('user', $usertomod);
+                $this->addToContent('entry', $repo->findAll());
+                $this->finalizeContent();
+                $this->setTemplate('mod');
+            } else {
+                $this->setTemplate('index');
+            }
         }
 
     }
