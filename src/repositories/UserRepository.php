@@ -25,7 +25,7 @@ class UserRepository {
         $dbname = 'mysql:host=localhost;dbname=nuwiki';
         $user = 'root';
         $dbcon = new PDO($dbname,$user);
-        $insstatement = $dbcon->prepare('INSERT INTO user (name, surname, nick, password, groupright) VALUES (:name :surname :nick :password :groupright)');
+        $insstatement = $dbcon->prepare('INSERT INTO user (name, surname, nick, password, groupright) VALUES (:name :surname :nick :password :groupright);');
         $name = $userdata->getName();
         $surname = $userdata->getSurname();
         $nick = $userdata->getNick();
