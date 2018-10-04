@@ -26,7 +26,7 @@ class UserRepository {
         $user = 'root';
         $dbcon = new PDO($dbname,$user);
         $insstatement = $dbcon->prepare('INSERT INTO user (name, surname, nick, password, groupright) VALUES (:name :surname :nick :password :groupright)');
-        $name = $userdata->getName()
+        $name = $userdata->getName();
         $surname = $userdata->getSurname();
         $nick = $userdata->getNick();
         $password = $userdata->getPassword();
