@@ -29,7 +29,8 @@ class UserController extends CommonController {
             //add validation here
 
             $secured['groupright'] = 'r';
-            $repo->add(new User($secured)); 
+            $secured['password'] = password_hash($secured['password'], PASSWORD_DEFAULT);
+            $repo->add(new User($secured));
         } else {
             $this->setTemplate('add');
         }
