@@ -86,4 +86,21 @@ class UserController extends CommonController {
         }
 
     }
+
+    public function loginAction() {
+        if(isset($_POST['loginSub'])) {
+            $repo = new Repo();
+            $secured = $this->cleaner($_POST);
+            $user = $repo->getByNick($secured['nick']);
+            if(password_verify($secured['password'], $user->getPassword())) {
+                $_SESSION['user'] = $user->getId();
+                redirect('index');
+            } else {
+                echo 'Passwort falsch';
+                $this->setTemplate('index');
+            }
+        } else {
+            $this->setTemplate('index');
+        }
+    }
 }

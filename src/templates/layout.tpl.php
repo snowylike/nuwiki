@@ -5,6 +5,9 @@
         <title>NuWiki</title>
     </head>
     <body>
+        <header>
+            <?php if(!isset($_SESSION['user'])) require('login.tpl.php'); ?>
+        </header>
         <nav>
             <a href="index.php">Home</a>
             <a href="index.php?controller=User">User Controls</a>
