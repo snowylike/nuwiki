@@ -26,7 +26,9 @@ class UserController extends CommonController {
     public function addAction() {
         if(isset($_POST['addUser'])) {
             $secured = $this->cleaner($_POST);
+            $repo = new Repo();
             //add validation here
+
 
             $secured['groupright'] = 'r';
             $secured['password'] = password_hash($secured['password'], PASSWORD_DEFAULT);
