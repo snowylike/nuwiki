@@ -72,6 +72,9 @@ class UserController extends CommonController {
 
             $this->finalizeContent();
             $this->setTemplate('index');
+        } else {
+            $this->setTemplate('mod');
         }
+
     }
 }
