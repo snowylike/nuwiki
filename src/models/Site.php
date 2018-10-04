@@ -11,7 +11,16 @@ class Site extends CommonModel {
     private $remoteIP = '';
     private $userAgent = '';
 
-
+    public function __construct(array $data = array()) {
+        if($data) {
+            foreach($data as $k => $v) {
+                $setterName = 'set'.ucfirst($k);
+                if(method_exists($this, $setterName)) {
+                    $this->$setterName($v);
+                }
+            }
+        }
+    }
 
     public function __toString() {
         return $this->author.' - '.$this->title;
