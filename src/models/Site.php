@@ -1,7 +1,7 @@
 <?php
 namespace models;
 
-class Site extends CommonModel {
+class Site {
 
     private $charset = '';
     private $title = '';
@@ -20,6 +20,10 @@ class Site extends CommonModel {
                 }
             }
         }
+    }
+
+    public function getArrayRepresentation() {
+        return get_object_vars($this);
     }
 
     public function __toString() {

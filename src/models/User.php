@@ -1,7 +1,7 @@
 <?php
 namespace models;
 
-class User extends CommonModel {
+class User {
 
     private $name = '';
     private $surname = '';
