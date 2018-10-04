@@ -26,12 +26,15 @@ class SiteController extends CommonController {
             $this->controller->indexAction();
         }
 
-        extract($this->getSiteArray());
+        if($this->getSiteArray()) {
+            extract($this->getSiteArray());
+        }
 
         $message = $this->getMessage();
         $content = $this->getContent();
-        extract($content);
-
+        if($content) {
+            extract($content);
+        }
         $template = $this->controller->getTemplate();
         $layout = $this->pathPrepper('src/templates/layout.tpl.php');
         require_once($layout);

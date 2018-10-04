@@ -21,6 +21,7 @@
         <nav>
             <a href="index.php">Home</a>
             <a href="index.php?controller=User">User Controls</a>
+            <a href="index.php?controller=Article">Articles</a>
         </nav>
         <main>
             <?php require($template); ?>
