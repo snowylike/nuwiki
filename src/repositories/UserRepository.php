@@ -42,4 +42,15 @@ class UserRepository {
         $insstatement = null;
         $dbcon = null;
     }
+
+    public function del($id) {
+        $dbname = 'mysql:host=localhost;dbname=nuwiki';
+        $user = 'root';
+        $dbcon = new PDO($dbname,$user);
+        $stmt = $dbcon->prepare("DELETE FROM user WHERE id=:id;");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $stmt = null;
+        $dbcon = null;
+    }
 }

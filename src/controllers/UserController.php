@@ -36,4 +36,14 @@ class UserController extends CommonController {
             $this->setTemplate('add');
         }
     }
+
+    public function delAction() {
+        if(isset($_GET['id'])) {
+            $repo = new Repo();
+            $repo->del($_GET['id']);
+            $this->setTemplate('index');
+        } else {
+            $this->setTemplate('index');
+        }
+    }
 }
