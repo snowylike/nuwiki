@@ -1,4 +1,4 @@
-<form action="index.html?controller=User&action=add" method="post">
+<form action="index.php?controller=User&action=add" method="post">
     <input type="text" name="name" placeholder="Vorname">
     <input type="text" name="surname" placeholder="Nachname">
     <input type="password" name="password" value="">
