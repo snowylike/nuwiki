@@ -16,6 +16,7 @@ class User extends CommonModel {
                 $setterName = 'set'.ucfirst($k);
                 echo $setterName.'<br>';
                 if(method_exists($this, $setterName)) {
+                    echo 'it exists <br>';
                     $this->$setterName($v);
                 }
             }
