@@ -7,6 +7,9 @@
     <body>
         <header>
             <?php if(!isset($_SESSION['user'])) require('login.tpl.php'); ?>
+            <?php if(isset($_SESSION['user'])): ?>
+                <a href="index.php?controller=Index&action=logout">Logout</a>
+            <?php endif; ?>
         </header>
         <nav>
             <a href="index.php">Home</a>
