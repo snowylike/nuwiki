@@ -31,6 +31,7 @@ class UserController extends CommonController {
             $secured['groupright'] = 'r';
             $secured['password'] = password_hash($secured['password'], PASSWORD_DEFAULT);
             $repo->add(new User($secured));
+            $this->setTemplate('index');
         } else {
             $this->setTemplate('add');
         }
