@@ -23,6 +23,10 @@ class User extends CommonModel {
         }
     }
 
+    public function getArrayRepresentation() {
+        return get_object_vars($this);
+    }
+
     public function setName($name) {
         $this->name = $name;
     }
