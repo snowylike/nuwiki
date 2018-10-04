@@ -97,11 +97,11 @@ class UserController extends CommonController {
                     $_SESSION['user'] = $user->getId();
                     $this->setTemplate('index');
                 } else {
-                    echo 'Passwort falsch';
+                    $this->setMessage('Passwort falsch');
                     $this->setTemplate('index');
                 }
             } else {
-                echo 'Nick existiert nicht';
+                $this->setMessage('Nick existiert nicht!');
                 $this->setTemplate('index');
             }
         } else {

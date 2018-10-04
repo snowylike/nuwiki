@@ -10,6 +10,13 @@
             <?php if(isset($_SESSION['user'])): ?>
                 <a href="index.php?controller=Index&action=logout">Logout</a>
             <?php endif; ?>
+            <?php if($message): ?>
+            <ul>
+                <?php foreach($message as $m): ?>
+                    <li><?= $m ?></li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
         </header>
         <nav>
             <a href="index.php">Home</a>
