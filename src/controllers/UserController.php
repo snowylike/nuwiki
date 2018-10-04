@@ -36,6 +36,10 @@ class UserController extends CommonController {
             $secured['groupright'] = 'r';
             $secured['password'] = password_hash($secured['password'], PASSWORD_DEFAULT);
             $repo->add(new User($secured));
+            $data = $repo->findAll();
+            $this->addToContent('entry', $data);
+
+            $this->finalizeContent();
             $this->setTemplate('index');
         } else {
             $this->setTemplate('add');
@@ -46,6 +50,10 @@ class UserController extends CommonController {
         if(isset($_GET['id'])) {
             $repo = new Repo();
             $repo->del($_GET['id']);
+            $data = $repo->findAll();
+            $this->addToContent('entry', $data);
+
+            $this->finalizeContent();
             $this->setTemplate('index');
         } else {
             $this->setTemplate('index');
