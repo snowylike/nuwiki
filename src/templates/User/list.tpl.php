@@ -1,4 +1,5 @@
 <h2>User Listing</h2>
+<?php if($entry): ?>
 <ul>
 <?php foreach($entry as $e): ?>
     <li>
@@ -12,3 +13,6 @@
     </li>
 <?php endforeach; ?>
 </ul>
+<?php else: ?>
+    <h3>Keine Benutzer vorhanden</h3>
+<?php endif; ?>
