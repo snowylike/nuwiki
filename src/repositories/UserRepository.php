@@ -64,7 +64,7 @@ class UserRepository {
         $stmt->execute();
         $temp = $stmt->fetchAll();
         var_dump($temp);
-        $entry = new User($temp);
+        $entry = new User($temp[0]);
         $user = null;
         $dbcon = null;
         return $entry;
