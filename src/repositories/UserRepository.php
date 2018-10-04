@@ -62,6 +62,7 @@ class UserRepository {
         $stmt = $dbcon->prepare('SELECT * FROM user WHERE id = :id;');
         $stmt->bindParam(':id', $id);
         $temp = $stmt->fetchAll();
+        var_dump($temp);
         $entry = new User($temp);
         $user = null;
         $dbcon = null;
