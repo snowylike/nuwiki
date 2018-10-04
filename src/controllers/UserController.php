@@ -94,7 +94,7 @@ class UserController extends CommonController {
             $user = $repo->getByNick($secured['nick']);
             if(password_verify($secured['password'], $user->getPassword())) {
                 $_SESSION['user'] = $user->getId();
-                $this->redirect('index');
+                $this->setTemplate('index');
             } else {
                 echo 'Passwort falsch';
                 $this->setTemplate('index');
