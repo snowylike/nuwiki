@@ -31,6 +31,7 @@ class UserRepository {
         $nick = $userdata->getNick();
         $password = $userdata->getPassword();
         $groupright = $userdata->getGroupright();
+        echo $name.' '.$surname.' '.$nick.' '.$password.' '.$groupright;
         $insstatement->bindParam(':name', $name);
         $insstatement->bindParam(':surname', $surname);
         $insstatement->bindParam(':nick', $nick);
