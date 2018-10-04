@@ -78,7 +78,11 @@ class UserRepository {
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         $temp = $stmt->fetchAll();
-        $entry = new User($temp[0]);
+        if($temp) {
+            $entry = new User($temp[0]);
+        } else {
+            $entry = false;
+        }
         $user = null;
         $dbcon = null;
         return $entry;
@@ -91,7 +95,11 @@ class UserRepository {
         $stmt->bindParam(':nick', $nick);
         $stmt->execute();
         $temp = $stmt->fetchAll();
-        $entry = new User($temp[0]);
+        if($temp) {
+            $entry = new User($temp[0]);
+        } else {
+            $entry = false;
+        }
         $user = null;
         $dbcon = null;
         return $entry;

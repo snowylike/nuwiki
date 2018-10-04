@@ -92,11 +92,16 @@ class UserController extends CommonController {
             $repo = new Repo();
             $secured = $this->cleaner($_POST);
             $user = $repo->getByNick($secured['nick']);
-            if(password_verify($secured['password'], $user->getPassword())) {
-                $_SESSION['user'] = $user->getId();
-                $this->setTemplate('index');
+            if($user) {
+                if(password_verify($secured['password'], $user->getPassword())) {
+                    $_SESSION['user'] = $user->getId();
+                    $this->setTemplate('index');
+                } else {
+                    echo 'Passwort falsch';
+                    $this->setTemplate('index');
+                }
             } else {
-                echo 'Passwort falsch';
+                echo 'Nick existiert nicht';
                 $this->setTemplate('index');
             }
         } else {
