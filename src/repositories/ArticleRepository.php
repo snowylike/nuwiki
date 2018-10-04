@@ -1,8 +1,8 @@
 <?php
 namespace repositories;
 
-use /models/Article;
+use \models\Article;
 
 class ArticleRepository {
-    
+
 }
