@@ -26,11 +26,16 @@ class UserRepository {
         $user = 'root';
         $dbcon = new PDO($dbname,$user);
         $insstatement = $dbcon->prepare('INSERT INTO user (name, surname, nick, password, groupright) VALUES (:name :surname :nick :password :groupright)');
-        $insstatement->bindParam(':name', $userdata->getName());
-        $insstatement->bindParam(':surname', $userdata->getSurname());
-        $insstatement->bindParam(':nick', $userdata->getNick());
-        $insstatement->bindParam(':password', $userdata->getPassword());
-        $insstatement->bindParam(':groupright', $userdata->getGroupright());
+        $name = $userdata->getName()
+        $surname = $userdata->getSurname();
+        $nick = $userdata->getNick();
+        $password = $userdata->getPassword();
+        $groupright = $userdata->getGroupright();
+        $insstatement->bindParam(':name', $name);
+        $insstatement->bindParam(':surname', $surname);
+        $insstatement->bindParam(':nick', $nick);
+        $insstatement->bindParam(':password', $password);
+        $insstatement->bindParam(':groupright', $groupright);
         $insstatement->execute();
         $insstatement = null;
         $dbcon = null;

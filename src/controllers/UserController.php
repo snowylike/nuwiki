@@ -28,8 +28,6 @@ class UserController extends CommonController {
             $secured = $this->cleaner($_POST);
             $repo = new Repo();
             //add validation here
-
-
             $secured['groupright'] = 'r';
             $secured['password'] = password_hash($secured['password'], PASSWORD_DEFAULT);
             $repo->add(new User($secured));
