@@ -59,4 +59,19 @@ class UserController extends CommonController {
             $this->setTemplate('index');
         }
     }
+
+    public function modAction() {
+        if(isset($_POST['modUser'])) {
+            $secured = $this->cleaner($_POST);
+            $repo = new Repo();
+            //add validation here
+            $user = $repo->getByID($secured['id']);
+            var_dump($user->getArrayRepresentation());
+            $data = $repo->findAll();
+            $this->addToContent('entry', $data);
+
+            $this->finalizeContent();
+            $this->setTemplate('index');
+        }
+    }
 }

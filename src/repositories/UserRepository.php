@@ -53,4 +53,18 @@ class UserRepository {
         $stmt = null;
         $dbcon = null;
     }
+
+    public function getByID($id) {
+        $dbname = 'mysql:host=localhost;dbname=nuwiki';
+        $user = 'root';
+        $dbcon = new PDO($dbname,$user);
+        $stmt = $dbcon->prepare("SELECT * FROM user WHERE id=:id");
+        $stmt->bindParam(':id', $id);
+        $temp = $stmt->fetchAll();
+        $entry = new User($temp);
+        $user = null;
+        $dbcon = null;
+        return $entry;
+
+    }
 }
