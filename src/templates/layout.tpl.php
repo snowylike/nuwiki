@@ -5,6 +5,12 @@
         <title>NuWiki</title>
     </head>
     <body>
-        <?php require($template); ?>
+        <nav>
+            <a href="index.php">Home</a>
+            <a href="index.php?controller=User">User Controls</a>
+        </nav>
+        <main>
+            <?php require($template); ?>
+        </main>
     </body>
 </html>
