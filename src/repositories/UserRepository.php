@@ -37,6 +37,7 @@ class UserRepository {
         $insstatement->bindParam(':nick', $nick);
         $insstatement->bindParam(':password', $password);
         $insstatement->bindParam(':groupright', $groupright);
+        print_r($insstatement);
         $insstatement->execute();
         $insstatement = null;
         $dbcon = null;
