@@ -25,7 +25,7 @@ class UserController extends CommonController {
         $this->addToContent('entry', $data);
 
         $this->finalizeContent();
-        $this->setTemplate('index');
+        $this->setTemplate('list');
     }
 
     public function addAction() {
@@ -40,7 +40,7 @@ class UserController extends CommonController {
             $this->addToContent('entry', $data);
 
             $this->finalizeContent();
-            $this->setTemplate('index');
+            $this->setTemplate('list');
         } else {
             $this->setTemplate('add');
         }

@@ -82,6 +82,19 @@ class UserRepository {
         $user = null;
         $dbcon = null;
         return $entry;
-
     }
+    public function getByNick($nick) {
+        $dbname = 'mysql:host=localhost;dbname=nuwiki';
+        $user = 'root';
+        $dbcon = new PDO($dbname,$user);
+        $stmt = $dbcon->prepare('SELECT * FROM user WHERE nick = :nick;');
+        $stmt->bindParam(':nick', $nick);
+        $stmt->execute();
+        $temp = $stmt->fetchAll();
+        $entry = new User($temp[0]);
+        $user = null;
+        $dbcon = null;
+        return $entry;
+    }
+
 }
