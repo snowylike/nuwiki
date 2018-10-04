@@ -67,7 +67,7 @@ class UserController extends CommonController {
             //add validation here
             $user = new User($secured);
             var_dump($user->getArrayRepresentation());
-
+            $repo->mod($user);
             $data = $repo->findAll();
             $this->addToContent('entry', $data);
 

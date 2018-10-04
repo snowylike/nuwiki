@@ -31,13 +31,29 @@ class UserRepository {
         $nick = $userdata->getNick();
         $password = $userdata->getPassword();
         $groupright = $userdata->getGroupright();
-        echo $name.' '.$surname.' '.$nick.' '.$password.' '.$groupright;
         $insstatement->bindParam(':name', $name);
         $insstatement->bindParam(':surname', $surname);
         $insstatement->bindParam(':nick', $nick);
         $insstatement->bindParam(':password', $password);
         $insstatement->bindParam(':groupright', $groupright);
-        print_r($insstatement);
+        $insstatement->execute();
+        $insstatement = null;
+        $dbcon = null;
+    }
+
+    public function mod(User $userdata) {
+        $dbname = 'mysql:host=localhost;dbname=nuwiki';
+        $user = 'root';
+        $dbcon = new PDO($dbname,$user);
+        $insstatement = $dbcon->prepare("UPDATE user SET name = :name, surname = :surname, nick = :nick WHERE id = :id;");
+        $name = $userdata->getName();
+        $surname = $userdata->getSurname();
+        $nick = $userdata->getNick();
+        $id = $userdata->getId();
+        $insstatement->bindParam(':name', $name);
+        $insstatement->bindParam(':surname', $surname);
+        $insstatement->bindParam(':nick', $nick);
+        $insstatement->bindParam(':id', $id);
         $insstatement->execute();
         $insstatement = null;
         $dbcon = null;
