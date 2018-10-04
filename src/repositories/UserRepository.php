@@ -58,12 +58,10 @@ class UserRepository {
         $dbname = 'mysql:host=localhost;dbname=nuwiki';
         $user = 'root';
         $dbcon = new PDO($dbname,$user);
-        echo $id;
         $stmt = $dbcon->prepare('SELECT * FROM user WHERE id = :id;');
         $stmt->bindParam(':id', $id);
         $stmt->execute();
-        $temp = $stmt->fetchAll();
-        var_dump($temp);
+        $temp = $stmt->fetchAll(),
         $entry = new User($temp[0]);
         $user = null;
         $dbcon = null;

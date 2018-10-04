@@ -65,14 +65,20 @@ class UserController extends CommonController {
             $secured = $this->cleaner($_POST);
             $repo = new Repo();
             //add validation here
-            $user = $repo->getByID($secured['id']);
+            $user = new User($secured);
             var_dump($user->getArrayRepresentation());
+
             $data = $repo->findAll();
             $this->addToContent('entry', $data);
 
             $this->finalizeContent();
             $this->setTemplate('index');
         } else {
+            $repo = new Repo();
+            $usertomod = $repo->getByID($_GET['id']);
+            $this->addToContent('user', $usertomod);
+            $this->addToContent('entry', $repo->findAll());
+            $this->finalizeContent();
             $this->setTemplate('mod');
         }
 
